@@ -1,15 +1,14 @@
 import React from "react";
 
-const ArticleListItem = (props) => {
+function ArticleListItem(props) {
   return (
     <article>
-     <header>
-       <h1>{props.title}</h1>
-     </header>
-     <time dateTime={props.timeStamp}>{props.displayDate}</time>
-     <p>{props.shortText}</p>
+      <h1>{props.articlelist.title}</h1>
+      <time dateTime={props.articlelist.timeStamp}>
+        {props.articlelist.displayDate}
+      </time>
+      <p>{props.articlelist.shortText}</p>
     </article>
-  )
+  );
 }
-
 export default ArticleListItem;
