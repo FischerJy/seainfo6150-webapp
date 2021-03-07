@@ -1,13 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HTMLText from "../HTMLText/HTMLText";
-import { Route, Switch, Link, useRouteMatch } from "react-router-dom";
 
 const DynamicArticle = (props) => {
-  let {url} = useRouteMatch();
   return (
     <article>
+      <Link to={`/ArticleList`}>Back</Link>
       <header>
-  
+      
         <h1>{props.article.title}</h1>
         <address>
           by {props.article.author} (

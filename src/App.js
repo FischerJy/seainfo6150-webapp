@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import DynamicArticle from "./DynamicArticle/DynamicArticle.jsx";
 import { isEmpty } from "lodash";
 import ArticleList from "./ArticleList/ArticleList";
 
 function App() {
-  let { url } = useRouteMatch();
   const [fetchedData, setFetchedData] = useState({});
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,25 +18,29 @@ function App() {
     };
 
     if (isEmpty(fetchedData)) {
+      setMessage("You have no data!")
       fetchData();
     }
   }, [fetchedData]);
-
-  return isEmpty(fetchedData) ? null : (
+  let singleArticle;
+  return isEmpty(fetchedData) ? <div>{message}</div> : (
     <div className="App">
       <Switch>
-        <Route exact path={`/articlelist`}><ArticleList /></Route>
+        <Route exact path={`/articlelist`}>  <ArticleList article={Object.values(fetchedData)}></ArticleList>
+        </Route>
         <Route
           path={`/articlelist/:slug`}
-          render={({ match }) => {
+          render={({ match }) => { 
+
             // getting the parameters from the url and passing
             // down to the component as props
-            console.log("this slug", match.params.slug);
-            return <div>Component</div>;
+
+            {Object.values(fetchedData).filter(data =>  data["slug"] === match.params.slug).map(filtereddata => (
+            singleArticle = filtereddata ))} 
+            return <div><DynamicArticle article={singleArticle} /></div>;
           }}
         />
         <Route>
-        <Link to={`${url}articlelist`}>Back</Link>
           <DynamicArticle article={Object.values(fetchedData)[1]} />
         </Route>
       </Switch>
