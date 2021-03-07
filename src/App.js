@@ -22,7 +22,8 @@ function App() {
       fetchData();
     }
   }, [fetchedData]);
-  let singleArticle;
+
+  let SelectArticle;
   return isEmpty(fetchedData) ? <div>{message}</div> : (
     <div className="App">
       <Switch>
@@ -36,8 +37,8 @@ function App() {
             // down to the component as props
 
             {Object.values(fetchedData).filter(data =>  data["slug"] === match.params.slug).map(filtereddata => (
-            singleArticle = filtereddata ))} 
-            return <div><DynamicArticle article={singleArticle} /></div>;
+              SelectArticle = filtereddata ))} 
+            return <div><DynamicArticle article={SelectArticle} /></div>;
           }}
         />
         <Route>
