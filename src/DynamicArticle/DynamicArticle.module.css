@@ -1,0 +1,12 @@
+.link {
+    font-weight: bold;
+    color: red;
+}
+.article {
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 20px;
+    border: dashed 1px black;
+    box-shadow: 5px 5px 5px 10px rgba(255, 0, 0,0.4);
+    font-family: sans-serif;
+}
