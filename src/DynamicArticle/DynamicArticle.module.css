@@ -16,3 +16,13 @@
     font-weight: bold;
     margin-bottom: 20px;
 }
+
+.img {
+  float: top;
+  margin-top: 10px;
+  border-radius: 60%; 
+  border:5px solid  red;;
+  position: relative;
+  height:6em;
+  width: 8em; 
+}

@@ -10,6 +10,7 @@ const DynamicArticle = (props) => {
         Back
       </Link>
       <article className={styles.article}>
+      <img src={props.article.image._url} alt={props.alttitle} />
         <header>
           <h1>{props.article.title}</h1>
           <address>
