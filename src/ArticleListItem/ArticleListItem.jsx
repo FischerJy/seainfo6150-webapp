@@ -15,6 +15,7 @@ const ArticleListItem = (props) => {
   return (
     <li className={styles.container}>
       <article className={styles.article}>
+      <div className={styles.wrapper}>
         <ArticleImage
           url={props.article.image._url}
           title={props.article.title}
@@ -28,6 +29,7 @@ const ArticleListItem = (props) => {
               {props.article.title}
             </Link>
           </h2>
+          </div>
           {isTextShowing && (
             <div className={styles.text}>
               <time className={styles.time} dateTime={props.article.timeStamp}>
