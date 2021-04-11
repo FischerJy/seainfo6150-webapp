@@ -29,7 +29,9 @@ const DynamicArticle = (props) => {
             {props.article.displayDate}
           </time>
         </header>
-        <HTMLText text={props.article.text} />
+        <div className={styles.content}>
+          <HTMLText text={props.article.text} />
+        </div>
       </article>
     </div>
   );
